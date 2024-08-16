@@ -3,28 +3,28 @@
 <plist version="1.0">
 <dict>
 	<key>Description</key>
-	<string>Downloads the latest version of FontAgent 10.</string>
+	<string>Verifies the Inspire Designer 16 Export Plugins package.
+
+NOTE:
+- This recipe does not download the Inspire Designer 16 Export plugin disk image--feed the disk image into the recipe via the following format:
+
+autopkg run InspireDesigner16ExportCC2024.download -p /path/to/Adobe-InDesign-2024-Plugin-R16-GA.pkg</string>
 	<key>Identifier</key>
-	<string>com.github.foigus.download.FontAgent10</string>
+	<string>com.github.foigus.download.InspireDesigner16ExportCC2024</string>
 	<key>Input</key>
 	<dict>
-		<key>DOWNLOAD_URL</key>
-		<string>https://store.insidersoftware.com/_downloads/FontAgent10.dmg</string>
 		<key>NAME</key>
-		<string>FontAgent</string>
+		<string>InspireDesigner16ExportCC2024</string>
 	</dict>
 	<key>MinimumVersion</key>
-	<string>0.6.0</string>
+	<string>0.2.0</string>
 	<key>Process</key>
 	<array>
 		<dict>
-			<key>Arguments</key>
-			<dict>
-				<key>url</key>
-				<string>%DOWNLOAD_URL%</string>
-			</dict>
+			<key>Comment</key>
+			<string>Not going to tackle downloading the software right now</string>
 			<key>Processor</key>
-			<string>URLDownloader</string>
+			<string>PackageRequired</string>
 		</dict>
 		<dict>
 			<key>Processor</key>
@@ -35,12 +35,12 @@
 			<dict>
 				<key>expected_authority_names</key>
 				<array>
-					<string>Developer ID Installer: Insider Software Inc. (936VDEB3YQ)</string>
+					<string>Developer ID Installer: Quadient s.r.o. (RK2GK9U5VX)</string>
 					<string>Developer ID Certification Authority</string>
 					<string>Apple Root CA</string>
 				</array>
 				<key>input_path</key>
-				<string>%pathname%/Double-click to install FontAgent.pkg</string>
+				<string>%PKG%/*.pkg</string>
 			</dict>
 			<key>Processor</key>
 			<string>CodeSignatureVerifier</string>
